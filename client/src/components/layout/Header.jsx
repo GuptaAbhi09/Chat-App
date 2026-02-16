@@ -28,7 +28,7 @@ import Notifications from "../specific/Notifications";
 import NewGroup from "../specific/NewGroup";
 
 import Profile from "../specific/Profile";
-import { sampleChats, sampleOnlineUsers } from "../../constants/sampleData";
+import { sampleChats, sampleNotifications, sampleOnlineUsers } from "../../constants/sampleData";
 
 const Header = () => {
   const theme = useTheme();
@@ -83,7 +83,7 @@ const Header = () => {
 
             <Tooltip title="Notifications">
               <IconButton color="inherit" sx={{marginRight: 3}} onClick={() => setOpenNotify(true)}>
-                <Badge badgeContent={4} color="error">
+                <Badge badgeContent={sampleNotifications.length} color="error">
                   <NotificationsIcon />
                 </Badge>
               </IconButton>
