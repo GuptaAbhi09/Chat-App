@@ -1,15 +1,12 @@
-import React from "react";
-import { Typography } from "@mui/material";
-import AppLayout from "../components/layout/AppLayout";
-import Title from "../components/shared/Title";
+import { Box } from "@mui/material";
+import Chat from "./Chat";
 
 const Home = () => {
   return (
-    <>
-      <Title title="Home" description="Home page of chat app" />
-      <Typography variant="h4">Welcome Home</Typography>
-    </>
+    <Box sx={{ height: "calc(100vh - 64px)" }}>
+      <Chat />
+    </Box>
   );
 };
 
-export default AppLayout(Home);
+export default Home;

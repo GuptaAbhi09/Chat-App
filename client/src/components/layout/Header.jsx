@@ -18,6 +18,7 @@ import AddIcon from "@mui/icons-material/Add";
 import GroupIcon from "@mui/icons-material/Group";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { useNavigate } from "react-router-dom";
 
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
@@ -39,6 +40,7 @@ const Header = () => {
   const [openNotify, setOpenNotify] = useState(false);
   const [openGroup, setOpenGroup] = useState(false);
   const [openProfile, setOpenProfile] = useState(false); 
+  const navigate = useNavigate();
 
   return (
     <>
@@ -76,7 +78,10 @@ const Header = () => {
             </Tooltip>
 
             <Tooltip title="Manage Groups">
-              <IconButton color="inherit">
+              <IconButton
+                color="inherit"
+                onClick={() => navigate("/groups")}
+              >
                 <GroupIcon />
               </IconButton>
             </Tooltip>

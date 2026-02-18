@@ -72,3 +72,66 @@ export const sampleNotifications = [
 ];
 
 export const sampleOnlineUsers = ["1", "3"];
+
+
+export const sampleMessages = [
+  {
+    _id: "m1",
+    content: "Hello bro!",
+    attachments: [],
+    sender: {
+      _id: "u1",
+      name: "Rohit",
+    },
+    status: "seen",
+    createdAt: "2024-01-01T10:00:00Z",
+  },
+  {
+    _id: "m2",
+    content: "my photo",
+    attachments: [
+      {
+        public_id: "file1",
+        url: "https://i.pravatar.cc/150?img=2",
+      },
+    ],
+    sender: {
+      _id: "me",
+      name: "Me",
+    },
+    status: "delivered",
+    createdAt: "2024-01-01T10:02:00Z",
+  },
+];
+
+export const sampleGroups = [
+  {
+    _id: "g1",
+    name: "Developers",
+    members: [
+      { _id: "u1", name: "Rohit" },
+      { _id: "u2", name: "Virat" },
+      { _id: "u3", name: "Pandya" },
+    ],
+    avatar: [
+        "https://i.pravatar.cc/150?img=2",
+        "https://i.pravatar.cc/150?img=3",
+        "https://i.pravatar.cc/150?img=4",
+      ],
+      groupChat: true,
+  },
+  {
+    _id: "g2",
+    name: "Design Team",
+    members: [
+      { _id: "u3", name: "Priya" },
+      { _id: "u4", name: "Neha" },
+    ],
+    avatar: [
+        "https://i.pravatar.cc/150?img=2",
+        "https://i.pravatar.cc/150?img=3",
+        "https://i.pravatar.cc/150?img=4",
+      ],
+      groupChat: true,
+  },
+];

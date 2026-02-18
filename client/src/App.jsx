@@ -1,11 +1,15 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import Groups from "./pages/Groups";
+import { AdminRoutes } from "./pages/admin/AdminLogin";
 
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Chat = lazy(() => import("./pages/Chat"));
+const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));  
 
 const App = () => {
 
@@ -23,6 +27,13 @@ const App = () => {
           <Route element={<ProtectedRoute user={user} />}>
             <Route path="/" element={<Home />} />
             <Route path="/chat/:chatId" element={<Chat />} />
+            <Route path="/groups" element={<Groups />} />
+          </Route>
+
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route element={<AdminRoutes />}>
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
           </Route>
 
           {/* Fallback Route */}

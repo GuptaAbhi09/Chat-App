@@ -40,7 +40,8 @@ const AppLayout = (WrappedComponent) => {
           <Box
             sx={{
               flexGrow: 1,
-              overflowY: "auto",
+              display: "flex",
+              flexDirection: "column",
               bgcolor: "#fafafa",
             }}
           >
