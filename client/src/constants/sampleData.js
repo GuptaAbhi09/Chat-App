@@ -93,6 +93,7 @@ export const sampleMessages = [
       {
         public_id: "file1",
         url: "https://i.pravatar.cc/150?img=2",
+        name: "photo.jpg",
       },
     ],
     sender: {

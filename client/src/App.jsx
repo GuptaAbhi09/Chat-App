@@ -10,6 +10,9 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Chat = lazy(() => import("./pages/Chat"));
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));  
+const AdminChats = lazy(() => import("./pages/admin/AdminChats"));
+const AdminMessages = lazy(() => import("./pages/admin/AdminMessages"));
+const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));  
 
 const App = () => {
 
@@ -34,6 +37,9 @@ const App = () => {
           <Route path="/admin" element={<AdminLogin />} />
           <Route element={<AdminRoutes />}>
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/chats" element={<AdminChats />} />
+            <Route path="/admin/messages" element={<AdminMessages />} />
+            <Route path="/admin/users" element={<AdminUsers />} />
           </Route>
 
           {/* Fallback Route */}
