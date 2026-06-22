@@ -6,6 +6,8 @@ import { uploadToCloudinary } from "../utils/cloudinary.js";
 
 // Register User
 export const register = asyncHandler(async (req, res) => {
+  // #swagger.tags = ['Auth']
+  
     const {name, username, password, bio} = req.body;
     if(!name || !username || !password) {
         return res.status(400).json({
@@ -68,6 +70,7 @@ export const register = asyncHandler(async (req, res) => {
 
 // LOGIN
 export const login = asyncHandler(async (req, res) => {
+  // #swagger.tags = ['Auth']
   const { username, password } = req.body;
 
   const user = await User.findOne({ username }).select("+password");
@@ -98,6 +101,7 @@ export const login = asyncHandler(async (req, res) => {
 
 // LOGOUT
 export const logout = asyncHandler(async (req, res) => {
+  // #swagger.tags = ['Auth']
   res
     .status(200)
     .cookie("token", "", {
@@ -111,6 +115,7 @@ export const logout = asyncHandler(async (req, res) => {
 
 // Get My Profile
 export const getMyProfile = asyncHandler(async (req, res) => {
+  // #swagger.tags = ['Auth']
   const user = await User.findById(req.user._id);
 
   res.status(200).json({

@@ -15,6 +15,7 @@ const outputFile = "./swagger-output.json";
 
 const endpointsFiles = [
   "./routes/userRoutes.js",
+  "./routes/chatRoutes.js"
 ];
 
 swagger(outputFile, endpointsFiles, doc);

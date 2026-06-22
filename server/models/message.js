@@ -17,7 +17,7 @@ const messagesSchema = new Schema({
         type: String,
         default: "",
     },
-    attchemnets: [
+    attachments: [
         {
             public_id: {
                 type: String,
