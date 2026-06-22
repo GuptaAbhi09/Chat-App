@@ -1,6 +1,7 @@
 import User from "../models/user.js";
 import { asyncHandler } from "../middlewares/asyncHandler.js"
 import { generateToken } from "../utils/generateToken.js";
+import { uploadToCloudinary } from "../utils/cloudinary.js";
 
 
 // Register User
@@ -19,11 +20,29 @@ export const register = asyncHandler(async (req, res) => {
             message: "Username already exists",
         })
     }
-    // Avatar ka abhi banana hai yaha par 
-    const avatar = {
-        public_id: "sample_id",
-        url: "https://res.cloudinary.com/dzj8qk4hr/image/upload/v1690794417/avatar/default_avatar.png",
+
+    // Avatar Upload to Cloudinary
+    if (!req.file) {
+        return res.status(400).json({
+            success: false,
+            message: "Please upload an avatar",
+        });
     }
+
+    let avatar = {};
+    try {
+        const result = await uploadToCloudinary(req.file);
+        avatar = {
+            public_id: result.public_id,
+            url: result.secure_url,
+        };
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error uploading avatar to Cloudinary",
+        });
+    }
+
      const user = await User.create({
         name,
         username,
@@ -90,5 +109,12 @@ export const logout = asyncHandler(async (req, res) => {
     });
 });
 
+// Get My Profile
+export const getMyProfile = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
 
-
+  res.status(200).json({
+    success: true,
+    user,
+  });
+});
